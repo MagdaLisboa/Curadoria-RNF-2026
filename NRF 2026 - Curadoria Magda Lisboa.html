@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRF 2026 — Guia de Fontes e Tendências</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f8f9fc;color:#1a1a2e;line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:60px 24px 48px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:6px 18px;font-size:13px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;color:#a8d8ea}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:800;line-height:1.15;margin-bottom:12px}
+.hero h1 span{color:#00d4ff}
+.hero p{font-size:18px;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 28px}
+.hero-meta{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,.7)}
+.hero-meta-item strong{color:#fff}
+
+/* THEMES */
+.themes{padding:48px 24px;background:#f8f9fc}
+.themes-inner{max-width:1100px;margin:0 auto}
+.themes h2{text-align:center;font-size:22px;font-weight:700;margin-bottom:32px}
+.themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.theme-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #e8eaf0;border-top:4px solid var(--tc)}
+.theme-card h3{font-size:17px;font-weight:700;margin-bottom:10px;color:var(--tc)}
+.theme-card p{font-size:14px;color:#555;margin-bottom:14px}
+.theme-stat{background:#f8f9fc;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;color:#333;border-left:3px solid var(--tc)}
+
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:40px 24px}
+
+/* SEARCH */
+.search-bar{background:#fff;border:2px solid #e8eaf0;border-radius:12px;padding:14px 18px;font-size:15px;width:100%;margin-bottom:28px;font-family:inherit;transition:border-color .2s;outline:none}
+.search-bar:focus{border-color:#0066ff}
+
+/* TABS */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{background:#fff;border:2px solid #e8eaf0;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;color:#555;white-space:nowrap}
+.tab:hover{border-color:#0066ff;color:#0066ff}
+.tab.active{background:var(--tab-color,#0066ff);border-color:var(--tab-color,#0066ff);color:#fff}
+.tab .count{background:rgba(255,255,255,.3);border-radius:100px;padding:1px 7px;font-size:11px;margin-left:4px}
+.tab:not(.active) .count{background:#f0f0f0;color:#888}
+
+/* SECTION */
+.section{display:none}
+.section.visible{display:block}
+.section-header{margin-bottom:20px}
+.section-header h2{font-size:20px;font-weight:700}
+.section-header p{font-size:14px;color:#666;margin-top:4px}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:#fff;border-radius:14px;padding:22px;border:1px solid #e8eaf0;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+.card-tag{display:inline-block;border-radius:100px;padding:3px 12px;font-size:11px;font-weight:700;letter-spacing:.3px;margin-bottom:12px;text-transform:uppercase}
+.card h3{font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.4}
+.card p{font-size:13px;color:#666;flex:1;line-height:1.55}
+.card-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;font-weight:600;color:#0066ff;transition:gap .15s}
+.card-link:hover{gap:10px}
+.card-link svg{flex-shrink:0}
+
+/* Tag colors */
+.tag-nrf{background:#e8f0fe;color:#1a56db}
+.tag-youtube{background:#fde8e8;color:#c81e1e}
+.tag-sebrae{background:#e8fdf0;color:#057a55}
+.tag-varejo{background:#fff3e0;color:#b45309}
+.tag-sustentabilidade{background:#ecfdf5;color:#047857}
+.tag-consumidor{background:#f3e8ff;color:#6d28d9}
+.tag-podcast{background:#fdf2e8;color:#92400e}
+.tag-portal{background:#e0f2fe;color:#0369a1}
+.tag-ferramenta{background:#f0fdf4;color:#166534}
+.tag-ia{background:#ede9fe;color:#5b21b6}
+.tag-destaque{background:#fff8e1;color:#92400e}
+.card.featured{border:2px solid #f59e0b;background:linear-gradient(135deg,#fffdf0 0%,#fff 70%);grid-column:1/-1;position:relative}
+.card.featured::after{content:'★ DESTAQUE DA OFICINA';position:absolute;top:14px;right:16px;background:#f59e0b;color:#fff;font-size:10px;font-weight:800;letter-spacing:.8px;padding:4px 12px;border-radius:100px}
+.card.featured h3{font-size:17px;color:#92400e}
+
+/* TOOLS TABLE */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.tool-card{background:#fff;border-radius:12px;padding:18px;border:1px solid #e8eaf0;display:flex;align-items:flex-start;gap:14px;transition:box-shadow .2s}
+.tool-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.07)}
+.tool-icon{width:40px;height:40px;border-radius:10px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.tool-info h3{font-size:14px;font-weight:700;margin-bottom:3px}
+.tool-info p{font-size:12px;color:#666;margin-bottom:6px}
+.tool-cost{font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;background:#f0f9ff;color:#0369a1;display:inline-block}
+.tool-cost.free{background:#f0fdf4;color:#166534}
+.tool-link{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:600;color:#0066ff}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 24px;color:#999}
+.no-results p{font-size:16px}
+
+/* FOOTER */
+footer{background:#1a1a2e;color:rgba(255,255,255,.6);text-align:center;padding:32px 24px;margin-top:60px}
+footer strong{color:#fff}
+
+@media(max-width:600px){
+  .hero{padding:40px 16px 36px}
+  .main{padding:24px 16px}
+  .hero-meta{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">11–13 JAN 2026 · NOVA YORK</div>
+  <h1>NRF 2026: <span>O Futuro do Varejo</span></h1>
+  <p>Curadoria de fontes, dados e tendências para pequenos e médios negócios brasileiros</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">🏛️ <strong>Javits Convention Center</strong></div>
+    <div class="hero-meta-item">👥 <strong>+45.000</strong> profissionais</div>
+    <div class="hero-meta-item">🎯 Tema: <strong>"The Next Now"</strong></div>
+    <div class="hero-meta-item">🎤 Keynote: <strong>Sundar Pichai (Google)</strong></div>
+  </div>
+</header>
+
+<section class="themes">
+  <div class="themes-inner">
+    <h2>Os 3 Grandes Temas da NRF 2026</h2>
+    <div class="themes-grid">
+      <div class="theme-card" style="--tc:#0066ff">
+        <h3>🤖 IA, Dados e o Varejo Conversacional</h3>
+        <p>A IA não chegou para substituir: chegou para estruturar. Do comércio agêntico à busca por contexto — quem organiza seus dados hoje decide com vantagem amanhã.</p>
+        <div class="theme-stat">"A IA não chegou para substituir: chegou para estruturar" — Alfredo Soares, NRF 2026</div>
+      </div>
+      <div class="theme-card" style="--tc:#ff6b35">
+        <h3>🤝 Experiência, Hospitalidade e o Humano como Diferencial</h3>
+        <p>Quanto mais tecnologia, mais vale o cuidado. A loja física que evoluiu, o vendedor que conhece o cliente pelo nome e o básico bem feito ainda são imbatíveis.</p>
+        <div class="theme-stat">"Hospitalidade é tratar o cliente como convidado, não como número" — Ferreirinha, NRF 2026</div>
+      </div>
+      <div class="theme-card" style="--tc:#00a86b">
+        <h3>🌿 Marca, Curadoria e Brasilidade</h3>
+        <p>Você não precisa copiar as grandes redes. Precisa ser insubstituível. Curadoria, voz própria e brasilidade são vantagens competitivas que nenhuma IA pode replicar.</p>
+        <div class="theme-stat">"O pequeno negócio não precisa copiar as grandes redes" — Ferreirinha, NRF 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <input class="search-bar" type="text" id="searchInput" placeholder="🔍  Buscar em todas as fontes..." oninput="filterAll()">
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" style="--tab-color:#0066ff" onclick="showSection('all',this)">Todas <span class="count" id="count-all">60</span></button>
+    <button class="tab" style="--tab-color:#1a56db" onclick="showSection('nrf',this)">NRF Oficial <span class="count" id="count-nrf">5</span></button>
+    <button class="tab" style="--tab-color:#c81e1e" onclick="showSection('youtube-nrf',this)">YouTube NRF <span class="count" id="count-youtube-nrf">10</span></button>
+    <button class="tab" style="--tab-color:#5b21b6" onclick="showSection('youtube-ia',this)">YouTube IA <span class="count" id="count-youtube-ia">5</span></button>
+    <button class="tab" style="--tab-color:#057a55" onclick="showSection('sebrae',this)">Sebrae <span class="count" id="count-sebrae">11</span></button>
+    <button class="tab" style="--tab-color:#b45309" onclick="showSection('varejo',this)">Varejo BR <span class="count" id="count-varejo">10</span></button>
+    <button class="tab" style="--tab-color:#047857" onclick="showSection('sustentabilidade',this)">Sustentabilidade <span class="count" id="count-sustentabilidade">7</span></button>
+    <button class="tab" style="--tab-color:#6d28d9" onclick="showSection('consumidor',this)">Consumidor <span class="count" id="count-consumidor">3</span></button>
+    <button class="tab" style="--tab-color:#92400e" onclick="showSection('podcast',this)">Podcasts <span class="count" id="count-podcast">2</span></button>
+    <button class="tab" style="--tab-color:#0369a1" onclick="showSection('portal',this)">Portais <span class="count" id="count-portal">7</span></button>
+    <button class="tab" style="--tab-color:#166534" onclick="showSection('ferramenta',this)">Ferramentas <span class="count" id="count-ferramenta">16</span></button>
+  </div>
+
+  <div id="cards-container"></div>
+  <div class="no-results" id="no-results" style="display:none"><p>Nenhuma fonte encontrada para essa busca.</p></div>
+</main>
+
+<footer>
+  <p>Curadoria: <strong>MAGDA LISBOA</strong> · NRF 2026 — The Next Now</p>
+  <p style="margin-top:8px;font-size:12px">Fontes verificadas em maio de 2026 · Para uso educacional</p>
+</footer>
+
+<script>
+const SOURCES = [
+  // NRF OFICIAL
+  {id:1,section:'nrf',tag:'tag-nrf',tagLabel:'NRF Oficial',title:'NRF 2026 — 10 Tendências e Previsões para o Varejo',desc:'Artigo oficial NRF com as 10 principais tendências para 2026, em inglês. Ponto de partida essencial.',url:'https://nrf.com/blog/10-trends-and-predictions-for-retail-in-2026'},
+  {id:2,section:'nrf',tag:'tag-nrf',tagLabel:'NRF Oficial',title:'Como a IA Agêntica está Redefinindo o Futuro do Varejo',desc:'Podcast NRF sobre IA agêntica e seu impacto operacional no varejo global.',url:'https://nrf.com/podcast/how-agentic-ai-is-redefining-the-future-of-retail'},
+  {id:3,section:'nrf',tag:'tag-nrf',tagLabel:'NRF Oficial',title:'O Futuro da IA na Experiência do Consumidor',desc:'Artigo NRF sobre personalização e IA. Como grandes marcas estão usando dados para criar experiências únicas.',url:'https://nrf.com/blog/future-ai-consumer-experience'},
+  {id:4,section:'nrf',tag:'tag-nrf',tagLabel:'NRF Oficial',title:'Logística Reversa como Nova Fonte de Receita',desc:'NRF sobre sustentabilidade e economia circular. Devoluções deixam de ser custo e viram oportunidade.',url:'https://nrf.com/blog/reverse-logistics-leads-the-way-to-new-revenue-streams'},
+  {id:5,section:'nrf',tag:'tag-nrf',tagLabel:'NRF Oficial',title:'Keynote: Sundar Pichai (CEO do Google) na NRF 2026',desc:'Anúncio oficial do keynote mais importante do evento. Pichai apresentou o Universal Commerce Protocol e o Gemini Enterprise.',url:'https://nrf.com/media-center/press-releases/nrf-2026-to-feature-google-ceo-sundar-pichai'},
+
+  // YOUTUBE NRF
+  {id:6,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'TUDO Sobre a NRF 2026: Tendências e Futuro do Varejo',desc:'Bate-Papo do Varejo (Gustavo Vannucci). Conversa exclusiva direto da NRF 2026 sobre tendências e transformações do varejo global.',url:'https://www.youtube.com/watch?v=F41-nb4IKbE'},
+  {id:7,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'NRF 2026 — Tendências e Insights para o Varejo no Brasil',desc:'VarejoCast (Caio Camargo & Fred Alecrim). Maior podcast de varejo do Brasil. Caio foi à NRF pelo 8º ano consecutivo.',url:'https://www.youtube.com/watch?v=Tu8yLPBu-YY'},
+  {id:8,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'As Tendências que vão Transformar o Varejo',desc:'Análise das principais tendências da NRF 2026 com especialistas brasileiros. Linguagem acessível e contextualizada.',url:'https://www.youtube.com/watch?v=EsNSqgW5Kcc'},
+  {id:9,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'Minuto Varejo Ep. 40: Por que a IA dominou a NRF 2026?',desc:'Análise rápida e objetiva de como a Inteligência Artificial tomou conta de todos os espaços da NRF 2026.',url:'https://www.youtube.com/watch?v=y_muBR4Ngns'},
+  {id:10,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'Direto de Nova York: inovação em lojas na NRF 2026',desc:'Minuto Varejo com cobertura presencial em Nova York. Inovações em loja física vistas de perto.',url:'https://www.youtube.com/watch?v=pTuMccyPdMw'},
+  {id:11,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'SENACAST Ep. 31 — NRF 2026 com Dijan de Barros',desc:'Episódio especial com especialista em varejo analisando os principais aprendizados do evento.',url:'https://www.youtube.com/watch?v=H14vdYhfhcw'},
+  {id:12,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'Três Temas da NRF 2026: IA, Loja como Terceiro Lugar e Comunidades',desc:'Análise dos 3 pilares mais relevantes da NRF para o contexto do varejo brasileiro.',url:'https://www.youtube.com/watch?v=LOq32Ug68Cc'},
+  {id:13,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'Money News: IA como principal tendência em 2026',desc:'Debate focado em IA e impacto no varejo. Perspectivas de especialistas brasileiros sobre o que aplicar.',url:'https://www.youtube.com/watch?v=anJ9Q3RnZ0Q'},
+  {id:14,section:'youtube-nrf',tag:'tag-youtube',tagLabel:'YouTube · NRF',title:'Pós NRF 2026 — Análise e Aplicações',desc:'Reflexão sobre o que fazer após as tendências apresentadas. O que é real, o que é hype e o que aplicar agora.',url:'https://www.youtube.com/watch?v=qaNggW4vTdM'},
+  {id:60,section:'youtube-nrf',tag:'tag-destaque',tagLabel:'★ Destaque da Oficina',title:'Acelera Varejo | PÓS-NRF 2026',desc:'Live completa de análise pós-NRF 2026 com foco em aplicação prática para o varejo brasileiro. Referência central utilizada na preparação desta oficina.',url:'https://youtube.com/live/vY0VGHBeLXI?feature=share',featured:true},
+
+  // YOUTUBE IA
+  {id:15,section:'youtube-ia',tag:'tag-ia',tagLabel:'YouTube · IA',title:'IA nos Pequenos Negócios: O que Você Precisa Saber',desc:'Sebrae SC. Vídeo educativo para iniciantes com linguagem acessível. Ideal para quem está começando.',url:'https://www.youtube.com/watch?v=REFwHxAw62g'},
+  {id:16,section:'youtube-ia',tag:'tag-ia',tagLabel:'YouTube · IA',title:'Como a IA Generativa está Mudando Pequenos Negócios',desc:'ACSP (Marcelo Trípoli). Palestrante experiente com foco em estratégia para pequenos negócios.',url:'https://www.youtube.com/watch?v=Uh9jLZmIMkM'},
+  {id:17,section:'youtube-ia',tag:'tag-ia',tagLabel:'YouTube · IA',title:'Como a IA Transforma o Varejo no Brasil',desc:'Casos reais de transformação digital no varejo brasileiro com foco em aplicação prática.',url:'https://www.youtube.com/watch?v=El07jYJZb-4'},
+  {id:18,section:'youtube-ia',tag:'tag-ia',tagLabel:'YouTube · IA',title:'Inteligência Artificial vai Aumentar Lucro do Varejo',desc:'ROI e lucratividade com IA. Como mensurar o retorno e justificar o investimento para o seu negócio.',url:'https://www.youtube.com/watch?v=hteZ8STNVOU'},
+  {id:19,section:'youtube-ia',tag:'tag-ia',tagLabel:'YouTube · IA',title:'IA na Prática: Google, Amazon e Microsoft em 2026',desc:'Tech Varejo. O que as gigantes da tecnologia planejam e oferecem para o varejo em 2026.',url:'https://www.youtube.com/watch?v=Svz0Ntbcwpg'},
+
+  // SEBRAE
+  {id:20,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'IA para Pequenos Negócios em 2026: Guia Prático com Ferramentas Gratuitas',desc:'Guia completo com ferramentas gratuitas e pagas de IA para ME/EPP. Curado pelo Sebrae RN.',url:'https://blog.rn.sebrae.com.br/inteligencia-artificial-pequenos-negocios/'},
+  {id:21,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Guia de Ferramentas de IA para Pequenos Negócios',desc:'Catálogo com ferramentas organizadas por categoria de uso. Sebrae RJ.',url:'https://inteligenciademercado.rj.sebrae.com.br/multissetorial/Guia-de-Ferramentas-de-Inteligencia-Artificial-IA-para-Pequenos-Negocios'},
+  {id:22,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Pequenos Negócios Abraçam a IA para Otimizar Tempo',desc:'Pesquisa do Sebrae sobre adoção de IA por micro e pequenos negócios no Brasil. Dados atualizados.',url:'https://agenciasebrae.com.br/dados/pequenos-negocios-abracam-a-inteligencia-artificial-para-otimizar-o-tempo-e-inovar/'},
+  {id:23,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'5 Tendências de Mercado para Pequenos Negócios em 2026',desc:'Tendências de simplificação, saúde, sustentabilidade e dados para quem empreende. Sebrae MS.',url:'https://sebrae.com.br/sites/PortalSebrae/ufs/ms/artigos/tendencias-de-mercado-2026-o-que-esperar-para-quem-empreende,d0bd85c46a71a910VgnVCM1000001b00320aRCRD'},
+  {id:24,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Sebrae PR — Especial NRF 2026',desc:'Cobertura especial do Sebrae PR da NRF 2026, com foco em ME/EPP. O que muda para o pequeno varejista.',url:'https://sebraepr.com.br/tendencias/tendencias-especial-nrf-2026/'},
+  {id:25,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'A Experiência do Cliente e a Evolução do Varejo',desc:'Artigo Sebrae sobre Customer Experience (CX) no varejo atual. Como encantar e fidelizar.',url:'https://sebrae.com.br/sites/PortalSebrae/a-experiencia-do-cliente-e-a-evolucao-do-varejo,144c38d335327810VgnVCM1000001b00320aRCRD'},
+  {id:26,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Guia de Tendências que Moldarão o Consumo em 2026',desc:'Guia completo de comportamento do consumidor brasileiro publicado pelo Sebrae RJ.',url:'https://inteligenciademercado.rj.sebrae.com.br/multissetorial/Confira-o-Guia-de-tendencias-que-moldarao-o-consumo-em-2026'},
+  {id:27,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'O Futuro do Varejo: Loja Física e Varejo de Experiência',desc:'Sebrae sobre o papel da loja física em 2026. Por que os consumidores continuam querendo ir à loja.',url:'https://sebrae.com.br/sites/PortalSebrae/artigos/o-futuro-do-varejo-a-loja-fisica-e-o-varejo-de-experiencia,4ec4e0039e795810VgnVCM1000001b00320aRCRD'},
+  {id:28,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'IA no Varejo Não é Tendência, É Prática',desc:'Blog Sebrae RS sobre IA como infraestrutura operacional, não mais como novidade tecnológica.',url:'https://digital.sebraers.com.br/blog/conteudos-especiais/ia-no-varejo-tendencia-pratica-mkt/'},
+  {id:29,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Reload 2026: Uso da IA Exige Estratégia',desc:'Agência Sebrae MG sobre a importância de ter estratégia ao adotar IA. Não basta usar — é preciso planejar.',url:'https://mg.agenciasebrae.com.br/inovacao-e-tecnologia/reload-2026-uso-da-ia-pelos-pequenos-negocios-exige-estrategia-apontam-especialistas/'},
+  {id:30,section:'sebrae',tag:'tag-sebrae',tagLabel:'Sebrae',title:'Curso Gratuito de IA: Alura + Sebrae + Google',desc:'Curso com certificado voltado para pequenos negócios. Parceria Alura, Sebrae e Google. Gratuito.',url:'https://abes.org.br/en/gratuito-alura-sebrae-e-google-anunciam-curso-de-ia-para-pequenos-negocios/'},
+
+  // VAREJO BRASILEIRO
+  {id:31,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'O Varejo que Vence em 2026: Tendências da NRF',desc:'E-Commerce Brasil. Estratégias para varejo vencedor com base nas tendências reveladas na NRF 2026.',url:'https://www.ecommercebrasil.com.br/artigos/o-varejo-que-vence-em-2026-tendencias-de-negocios-e-estrategias-reveladas-na-nrf-2026'},
+  {id:32,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'5 Tendências da NRF 2026 para o Varejo Brasileiro',desc:'Varejo S.A. (CNDL). Análise das 5 principais tendências da NRF aplicadas ao contexto do Brasil.',url:'https://cndl.org.br/varejosa/5-tendencias-da-nrf-2026-para-o-varejo-brasileiro/'},
+  {id:33,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'NRF 2026: O Varejo que Vai Vencer Não é o Mais Digital, é o Mais Inteligente',desc:'Varejo S.A. (CNDL). Inteligência como diferencial competitivo — além da digitalização.',url:'https://cndl.org.br/varejosa/nrf-2026-o-varejo-que-vencera-em-2026-nao-sera-apenas-o-mais-digital-mas-o-inteligente/'},
+  {id:34,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'NRF 2026 — Varejo Entra na Era da Execução Contínua',desc:'Varejo S.A. (CNDL). A era da execução: IA no centro das decisões. O tempo de só planejar acabou.',url:'https://cndl.org.br/varejosa/nrf-2026-varejo-entra-na-era-da-execucao-continua-com-ia-no-centro-das-decisoes/'},
+  {id:35,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'5 Tendências da NRF que já Influenciam o Varejo Brasileiro',desc:'Carta Capital. Impacto das tendências globais no varejo brasileiro. O que já está acontecendo aqui.',url:'https://www.cartacapital.com.br/do-micro-ao-macro/5-tendencias-da-nrf-2026-que-ja-influenciam-o-varejo-brasileiro/'},
+  {id:36,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'Omnicanalidade em Prática no Brasil',desc:'E-Commerce Brasil. Como implementar omnichannel de forma prática para pequenas e médias empresas.',url:'https://www.ecommercebrasil.com.br/artigos/omnicanalidade-em-pratica'},
+  {id:37,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'PMEs no E-Commerce: Crescimento de 1.200% Desde a Pandemia',desc:'MDIC (Governo Federal). Dados oficiais sobre o crescimento explosivo de PMEs no digital desde 2020.',url:'https://www.gov.br/mdic/pt-br/assuntos/noticias/2025/junho/vendas-de-pequenas-empresas-pela-internet-crescem-1-200-desde-a-pandemia-mostra-painel-do-mdic'},
+  {id:38,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'Expectativas para NRF 2026: Omnichannel e Experiência Frictionless',desc:'Central do Varejo. Contexto pré-NRF e expectativas do varejo brasileiro em relação ao evento.',url:'https://centraldovarejo.com.br/expectativas-para-nrf-2026-do-omnichannel-a-urgencia-da-experiencia-frictionless/'},
+  {id:39,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'Pós-NRF 2026: A Virada para a Era do Comércio Agêntico',desc:'ABF (Associação Brasileira de Franchising). O franchising na era do comércio agêntico pós-NRF.',url:'https://www.abf.com.br/pos-nrf-2026-a-virada-do-varejo-para-a-era-do-comercio-agentico/'},
+  {id:40,section:'varejo',tag:'tag-varejo',tagLabel:'Varejo BR',title:'Microsoft: 75% das MPMEs Brasileiras Otimistas com IA',desc:'Microsoft News. Pesquisa sobre adoção e otimismo de IA nas pequenas e médias empresas do Brasil.',url:'https://news.microsoft.com/source/latam/features/noticias-da-microsoft/75-das-mpmes-no-brasil-estao-otimistas-sobre-o-impacto-da-inteligencia-artificial-em-seus-negocios-aponta-estudo-da-microsoft/'},
+
+  // SUSTENTABILIDADE
+  {id:41,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Empresas Sustentáveis do Brasil — Cases de PME',desc:'Papel Semente. Cases reais de pequenas empresas brasileiras com propósito. Inspiração concreta.',url:'https://papelsemente.com.br/blog/empresas-sustentaveis-do-brasil/'},
+  {id:42,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Preocupação da Gen Z Brasileira Supera a Média Global',desc:'ESG Inside / Deloitte. 81% da Gen Z brasileira ansiosa com questões ambientais — acima da média mundial.',url:'https://esginside.com.br/2025/09/04/preocupacao-dos-brasileiros-das-geracoes-z-e-millennial-com-questoes-ambientais-supera-a-media-global-revela-pesquisa-da-deloitte/'},
+  {id:43,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Cresce Número de Consumidores Dispostos a Pagar Mais',desc:'EY Brasil. 37% dos consumidores pagam mais por produtos e serviços sustentáveis — oportunidade para PMEs.',url:'https://www.ey.com/pt_br/agencia-ey/noticias/cresce-numero-consumidores-pagar-mais-produtos-servicos-sustentaveis'},
+  {id:44,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Eureciclo — Certificação de Reciclagem Acessível para PMEs',desc:'Programa de compensação ambiental acessível para pequenas empresas. Selos de reciclagem com custo baixo.',url:'https://www.eureciclo.com.br/'},
+  {id:45,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Boticário Boti Recicla — Case que Viralizou',desc:'O programa de troca de embalagens que viralizou nas redes. Economia circular como estratégia de marketing.',url:'https://www.boticario.com.br/boti-recicla/'},
+  {id:46,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Sustentabilidade e Lucro: Cases com Energia Solar',desc:'Cases de pequenos negócios com energia solar e ROI real. Como reduzir custos e comunicar propósito.',url:'https://revistameubebe.com.br/noticias/sustentabilidade-e-lucro-cases-de-sucesso-com-energia-limpa-em-pequenas-empresas'},
+  {id:47,section:'sustentabilidade',tag:'tag-sustentabilidade',tagLabel:'Sustentabilidade',title:'Storytelling e Sustentabilidade nas Redes Sociais',desc:'Ideia Sustentável. Como contar a história de propósito da sua empresa para engajar consumidores.',url:'https://ideiasustentavel.com.br/storytelling-sustentabilidade-empresarial/'},
+
+  // CONSUMIDOR
+  {id:48,section:'consumidor',tag:'tag-consumidor',tagLabel:'Consumidor',title:'Comportamento do Consumidor: O que Esperar em 2025',desc:'Phorte. Análise do comportamento por geração — Baby Boomers, Millennials, Gen Z e Alpha.',url:'https://faculdadephorte.edu.br/comportamento-do-consumidor-o-que-esperar-em-2025-e-como-aproveitar-as-mudancas/'},
+  {id:49,section:'consumidor',tag:'tag-consumidor',tagLabel:'Consumidor',title:'Tendências de Consumo 2025 — Kantar',desc:'Kantar. Dados quantitativos sobre comportamento do consumidor brasileiro. A fonte mais citada do mercado.',url:'https://www.kantar.com/brazil/inspiration/consumo/2025/tendencias-consumo-2025'},
+  {id:50,section:'consumidor',tag:'tag-consumidor',tagLabel:'Consumidor',title:'Nova Jornada de Compra — mLabs',desc:'Como cada geração compra de forma diferente. Jornadas distintas exigem estratégias distintas.',url:'https://www.mlabs.com.br/blog/nova-jornada-de-compra'},
+
+  // PODCASTS
+  {id:51,section:'podcast',tag:'tag-podcast',tagLabel:'Podcast',title:'VarejoCast — O Maior Podcast de Varejo do Brasil',desc:'Caio Camargo & Fred Alecrim. Caio foi à NRF 2026 pelo 8º ano consecutivo. Cobertura e análises essenciais.',url:'https://open.spotify.com/show/3GX3RkqTDVFQDE2Q48gK4C'},
+  {id:52,section:'podcast',tag:'tag-podcast',tagLabel:'Podcast',title:'Varejo S.A. Podcast — CNDL',desc:'Podcast oficial da CNDL com 200+ episódios e convidados das maiores marcas do varejo brasileiro.',url:'https://podcasts.apple.com/us/podcast/varejo-s-a-podcast/id1604646395'},
+
+  // PORTAIS
+  {id:53,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'Varejo S.A. — CNDL',desc:'Portal com análises profundas de varejo e consumo. Referência do setor para dados e tendências.',url:'https://cndl.org.br/varejosa/'},
+  {id:54,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'E-Commerce Brasil',desc:'Tendências, dados, artigos e notícias de e-commerce. O maior portal de e-commerce do Brasil.',url:'https://www.ecommercebrasil.com.br'},
+  {id:55,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'SBVC — Sociedade Brasileira de Varejo e Consumo',desc:'Entidade que reúne os principais executivos de varejo. Pesquisas, eventos e análises de mercado.',url:'https://sbvc.com.br/'},
+  {id:56,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'IBEVAR — Instituto Brasileiro de Executivos de Varejo',desc:'Instituto com dados, rankings e conteúdo de alto nível para profissionais de varejo.',url:'https://www.ibevar.org.br/'},
+  {id:57,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'ABF — Associação Brasileira de Franchising',desc:'Portal da ABF com análises de franquias, comércio agêntico e tendências do varejo organizado.',url:'https://www.abf.com.br/'},
+  {id:58,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'NRF.com — Site Oficial',desc:'Site oficial da National Retail Federation com relatórios, artigos, podcasts e agenda de eventos.',url:'https://nrf.com'},
+  {id:59,section:'portal',tag:'tag-portal',tagLabel:'Portal',title:'Central do Varejo',desc:'Portal brasileiro com análises de mercado, cobertura de eventos e tendências do varejo nacional.',url:'https://centraldovarejo.com.br'},
+];
+
+const TOOLS = [
+  {name:'ChatGPT',fn:'IA generativa — textos, ideias, conteúdo',cost:'Gratuito',costType:'free',url:'https://chatgpt.com',icon:'🤖'},
+  {name:'Google Gemini',fn:'IA integrada ao Google Workspace',cost:'Gratuito',costType:'free',url:'https://gemini.google.com',icon:'✨'},
+  {name:'Canva',fn:'Design com IA — posts, apresentações',cost:'Grátis / R$ 14,99/mês',costType:'free',url:'https://www.canva.com',icon:'🎨'},
+  {name:'NotebookLM',fn:'Resumir documentos e criar áudios',cost:'Gratuito',costType:'free',url:'https://notebooklm.google.com',icon:'📓'},
+  {name:'BotConversa',fn:'Chatbot para WhatsApp',cost:'Planos acessíveis',costType:'paid',url:'https://botconversa.com.br',icon:'💬'},
+  {name:'Blip',fn:'Chatbot oficial Meta/WhatsApp Business',cost:'Variável',costType:'paid',url:'https://www.blip.ai',icon:'📱'},
+  {name:'RD Station CRM',fn:'CRM com WhatsApp integrado',cost:'Grátis até 100 contatos',costType:'free',url:'https://www.rdstation.com',icon:'📊'},
+  {name:'HubSpot CRM',fn:'CRM completo com automações',cost:'Gratuito',costType:'free',url:'https://br.hubspot.com',icon:'🏢'},
+  {name:'Google Meu Negócio',fn:'Visibilidade local + avaliações Google',cost:'Gratuito',costType:'free',url:'https://www.google.com/business/',icon:'📍'},
+  {name:'Meta Business Suite',fn:'Gestão de Instagram + Facebook',cost:'Gratuito',costType:'free',url:'https://www.facebook.com/business/',icon:'📣'},
+  {name:'Mailchimp',fn:'E-mail marketing com IA',cost:'Grátis até 500 contatos',costType:'free',url:'https://mailchimp.com',icon:'✉️'},
+  {name:'Fidelimax',fn:'Programa de fidelidade digital',cost:'R$ 29–99/mês',costType:'paid',url:'https://www.fidelimax.com.br',icon:'⭐'},
+  {name:'Nuvemshop',fn:'Loja virtual fácil de configurar',cost:'R$ 59,90/mês',costType:'paid',url:'https://www.nuvemshop.com.br',icon:'🛒'},
+  {name:'Bling ERP',fn:'Gestão financeira e inventário',cost:'R$ 60/mês',costType:'paid',url:'https://www.bling.com.br',icon:'📦'},
+  {name:'OmniChat',fn:'Chat commerce multicanal',cost:'Variável',costType:'paid',url:'https://omni.chat',icon:'💬'},
+  {name:'Eureciclo',fn:'Certificação de reciclagem para PMEs',cost:'Baixo custo',costType:'paid',url:'https://www.eureciclo.com.br',icon:'♻️'},
+];
+
+let currentSection = 'all';
+let searchTerm = '';
+
+function showSection(sec, el) {
+  currentSection = sec;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+function filterAll() {
+  searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  render();
+}
+
+function arrowSVG() {
+  return `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function renderSources(sources) {
+  return sources.map(s => `
+    <div class="card${s.featured?' featured':''}" data-section="${s.section}" data-search="${(s.title+' '+s.desc).toLowerCase()}">
+      <span class="card-tag ${s.tag}">${s.tagLabel}</span>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+      <a class="card-link" href="${s.url}" target="_blank" rel="noopener">Acessar ${arrowSVG()}</a>
+    </div>`).join('');
+}
+
+function render() {
+  const container = document.getElementById('cards-container');
+  const noResults = document.getElementById('no-results');
+
+  if (currentSection === 'ferramenta') {
+    const filtered = searchTerm
+      ? TOOLS.filter(t => (t.name+t.fn).toLowerCase().includes(searchTerm))
+      : TOOLS;
+    if (filtered.length === 0) {
+      container.innerHTML = '';
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+      container.innerHTML = `<div class="tools-grid">` + filtered.map(t => `
+        <div class="tool-card">
+          <div class="tool-icon">${t.icon}</div>
+          <div class="tool-info">
+            <h3>${t.name}</h3>
+            <p>${t.fn}</p>
+            <span class="tool-cost ${t.costType==='free'?'free':''}">${t.cost}</span>
+            <br><a class="tool-link" href="${t.url}" target="_blank" rel="noopener">Acessar ${arrowSVG()}</a>
+          </div>
+        </div>`).join('') + `</div>`;
+    }
+    return;
+  }
+
+  let sources = SOURCES;
+  if (currentSection !== 'all') sources = sources.filter(s => s.section === currentSection);
+  if (searchTerm) sources = sources.filter(s => (s.title+' '+s.desc+' '+s.tagLabel).toLowerCase().includes(searchTerm));
+  sources = [...sources.filter(s => s.featured), ...sources.filter(s => !s.featured)];
+
+  if (sources.length === 0) {
+    container.innerHTML = '';
+    noResults.style.display = 'block';
+  } else {
+    noResults.style.display = 'none';
+    container.innerHTML = `<div class="cards-grid">${renderSources(sources)}</div>`;
+  }
+}
+
+// init
+render();
+</script>
+</body>
+</html>
